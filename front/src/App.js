@@ -1,5 +1,6 @@
 //import "./css/index.css"
 
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -9,9 +10,7 @@ function App() {
       <main>
         content
       </main>
-      <footer>
-        copyRight Ahmed Adel@2022
-      </footer>
+      <Footer />
     </div>
   );
 }
