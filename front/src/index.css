@@ -19,16 +19,7 @@
   grid-template-rows: 50px 1fr 50px;
   
 }
-header{
-  grid-area: header;
-  background-color: blueviolet;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:#fff;
 
-}
 
 main{
   grid-area: main;

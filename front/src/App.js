@@ -1,11 +1,11 @@
 //import "./css/index.css"
 
+import Header from "./components/Header/Header";
+
 function App() {
   return (
     <div className="container">
-      <header>
-        Shooping Cart
-      </header>
+      <Header />
       <main>
         content
       </main>

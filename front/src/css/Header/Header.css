@@ -1,7 +1,7 @@
 header {
   grid-area: header;
-  background-color: rgb(96, 71, 207);
-  font-size: 22;
+  background-color: blueviolet;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
