@@ -1,10 +1,10 @@
-[
+export const data =[
     {
         "id":"id1",
         "name":"product 1",
         "price":150,
         "desc":"this is the desc of product 1",
-        "imageUrl":"/images/product1.jpg",
+        "imageUrl":"product1.jpg",
         "sizes":["m","l"]
     },
     {
@@ -12,15 +12,15 @@
         "name":"product 2",
         "price":100,
         "desc":"this is the desc of product 2",
-        "imageUrl":"/images/product2.jpeg",
+        "imageUrl":"product2.jpg",
         "sizes":["m","l"]
     },
     {
         "id":"i3",
-        "name":"product3",
+        "name":"product 3",
         "price":80,
         "desc":"this is the desc of product3",
-        "imageUrl":"/images/produc3.jpeg",
+        "imageUrl":"product3.jpg",
         "sizes":["m","l"]
     },
     {
@@ -28,7 +28,7 @@
         "name":"product 4",
         "price":200,
         "desc":"this is the desc of product 4",
-        "imageUrl":"/images/product4.jpeg",
+        "imageUrl":"product4.jpg",
         "sizes":["m","l"]
     }
 ]
