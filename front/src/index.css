@@ -27,6 +27,18 @@ main{
 
 }
 
+.mainContainer{
+  display: flex;
+  justify-content: space-around;
+}
 
+.productsContainer{
+  width: 68%;
+  flex-wrap: wrap;
+}
+
+.filterContainer{
+  width: 30%;
+}
 
 
