@@ -1,10 +1,10 @@
 import React from 'react'
 import "../../css/Header/Header.css";
-
+import { statics } from '../../static';
 export default function Header() {
     return (
         <header>
-            Shooping Cart
+            {statics.headerTitle}
         </header>
     )
 }
