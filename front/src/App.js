@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import { statics } from "./static";
 import { data } from "./products_json"; 
 import Products from "./components/Products/Products";
+import Filter from "./components/Filter/Filter";
 function App() {
   //console.log(data)
   return (
@@ -16,7 +17,7 @@ function App() {
             <Products products={data} />
           </div>
           <div className="filterContainer">
-            Filter
+            <Filter />
           </div>
         </div>
       </main>
