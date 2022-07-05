@@ -21,7 +21,7 @@ export const data =[
         "price":80,
         "desc":"this is the desc of product3",
         "imageUrl":"product3.jpg",
-        "sizes":["m","XXL"]
+        "sizes":["M","XXL"]
     },
     {
         "id":"id4",
@@ -29,6 +29,6 @@ export const data =[
         "price":200,
         "desc":"this is the desc of product 4",
         "imageUrl":"product4.jpg",
-        "sizes":["L","XL","XXL"]
+        "sizes":["L","XL","XXXL"]
     }
 ]
