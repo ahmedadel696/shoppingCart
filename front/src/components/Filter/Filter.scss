@@ -1,0 +1,32 @@
+.filter-container{
+    display: flex;
+    flex-direction: column;
+
+    .filter-title{
+        border: 1px solid #333;
+        padding: 10px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        background-color: #2a5ea5;
+        margin: 5px 10px;
+
+    }
+
+    > div{
+        padding: 5px 20px;
+        margin-bottom: 10px;
+    }
+
+    p{
+        margin: 2px 0;
+    }
+
+    select{
+        display: block;
+        height: 40px;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+}

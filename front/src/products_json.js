@@ -5,7 +5,7 @@ export const data =[
         "price":150,
         "desc":"this is the desc of product 1",
         "imageUrl":"product1.jpg",
-        "sizes":["m","l"]
+        "sizes":["S","M"]
     },
     {
         "id":"id2",
@@ -13,7 +13,7 @@ export const data =[
         "price":100,
         "desc":"this is the desc of product 2",
         "imageUrl":"product2.jpg",
-        "sizes":["m","l"]
+        "sizes":["S","L","XL"]
     },
     {
         "id":"i3",
@@ -21,7 +21,7 @@ export const data =[
         "price":80,
         "desc":"this is the desc of product3",
         "imageUrl":"product3.jpg",
-        "sizes":["m","l"]
+        "sizes":["M","XXL"]
     },
     {
         "id":"id4",
@@ -29,6 +29,6 @@ export const data =[
         "price":200,
         "desc":"this is the desc of product 4",
         "imageUrl":"product4.jpg",
-        "sizes":["m","l"]
+        "sizes":["L","XL","XXXL"]
     }
 ]
