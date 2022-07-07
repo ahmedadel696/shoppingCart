@@ -6,7 +6,10 @@ function Filter(props) {
     return (
         <div className='filter-container'>
             <h3 className='filter-title'>Filter</h3>
+
             <div className='filter-size-container'>
+                <p className='filter-size-count'>Num of Products {props.count}</p>
+
                 <p className='filter-size-title'>Size Filter</p>
                 <select value={props.size} className='filter-size-select' onChange={props.handleFitlerBySize}>
                     <option value="All">All</option>

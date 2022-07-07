@@ -25,3 +25,8 @@
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+.filter-size-container .filter-size-count {
+  margin: 5px 0;
+  font-size: 20px;
+}
