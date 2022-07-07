@@ -6,12 +6,13 @@ import { data } from "./products_json";
 import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
 import { useState } from "react";
+import Cart from "./components/Cart/Cart";
 function App() {
 
   const [products, setProducts] = useState(data);
   const [sizeFilter, setSizeFilter] = useState("");
   const [orderFilter, setOrderFilter] = useState("");
-
+  const [cartItems, setCartItems] = useState(data);
   const handleFitlerBySize = (e) => {
     console.log(e.target.value);
     setSizeFilter(e.target.value);
@@ -30,12 +31,12 @@ function App() {
     setOrderFilter(e.target.value);
 
     let ProductsClone = [...products];
-    let newProductsClone = ProductsClone.sort(function(a,b){
-      if(e.target.value === "lowest"){
+    let newProductsClone = ProductsClone.sort(function (a, b) {
+      if (e.target.value === "lowest") {
         return a.price - b.price;
-      }else if(e.target.value === "highest"){
+      } else if (e.target.value === "highest") {
         return b.price - a.price;
-      }else{
+      } else {
         return a.id < b.id ? 1 : -1;
       }
     });
@@ -51,9 +52,11 @@ function App() {
             <Products products={products} />
           </div>
           <div className="filterContainer">
-            <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} />
+            <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
           </div>
+
         </div>
+          <Cart cartItems={cartItems}/>
       </main>
       <Footer />
     </div>
