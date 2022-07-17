@@ -52,6 +52,7 @@ function App() {
       if (item.id === product.id) {
         isExist = true;
         item.qty++;
+        item.price = item.price * item.qty;
       }
     });
 
