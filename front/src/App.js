@@ -47,6 +47,7 @@ function App() {
   const addToCart = (product) => {
     var isExist = false;
     var cartItemsClone = [...cartItems];
+    var totalPrice = 0;
     cartItems.forEach(item => {
       if (item.id === product.id) {
         isExist = true;
@@ -55,13 +56,17 @@ function App() {
     });
 
     if (!isExist) {
-
       cartItemsClone.push({ ...product, qty: 1 });
     }
 
     setCartItems(cartItemsClone)
   }
 
+  const removeFromCart =(product)=>{
+    var cartItemsClone = [...cartItems];
+    var cartItemsCloneFilter = cartItemsClone.filter(p => p.id != product.id);
+    setCartItems(cartItemsCloneFilter);
+  }
 
   useEffect(() => {
     localStorage.setItem('cartItems',JSON.stringify(cartItems));
@@ -80,11 +85,6 @@ function App() {
   //   });
   // }
 
-  const removeFromCart =(product)=>{
-    var cartItemsClone = [...cartItems];
-    var cartItemsCloneFilter = cartItemsClone.filter(p => p.id != product.id);
-    setCartItems(cartItemsCloneFilter);
-  }
 
   return (
     <div className="container">
@@ -98,7 +98,7 @@ function App() {
             <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
           </div>
         </div>
-        <Cart removeFromCart={removeFromCart} cartItems={cartItems} />
+        <Cart removeFromCart={removeFromCart} cartItems={cartItems}  />
       </main>
       <Footer />
     </div>
