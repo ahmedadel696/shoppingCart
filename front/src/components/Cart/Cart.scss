@@ -27,15 +27,7 @@
       display: flex;
       flex: 1;
       justify-content: space-between;
-      button {
-        display: inline-block;
-        border: 0;
-        background-color: #2a5ea5;
-        color: #fff;
-        padding: 7px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
+
       .item-info-details {
         p {
           margin: 10px 0px;
@@ -43,4 +35,27 @@
       }
     }
   }
+  .cart-footer {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+  }
+  .cart-price {
+    font-size: 25px;
+  }
+
+
+
+}
+
+button {
+  display: inline-block;
+  border: 0;
+  background-color: #2a5ea5;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+  cursor: pointer;
 }
