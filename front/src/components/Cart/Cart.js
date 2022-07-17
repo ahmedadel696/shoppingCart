@@ -4,19 +4,19 @@ function Cart(props) {
     const [cartItems, setCartItems] = useState(props.cartItems);
     return (
         <div className="cartContainer">
-            <div className="cartContainer-title">Cart is Empty</div>
+            <div className="cartContainer-title">{props.cartItems.length >0 ?'CART ITEMS':'CART IS EMPTY'}</div>
             <div className='cartItems'>
-                {cartItems.map((item, i) => (
+                {props.cartItems.map((item, i) => (
                     <div key={i} className='cartItemContainer'>
                         <img src={require(`../../images/${item.imageUrl}`)} />
                         <div className='item-info'>
-                            <div>
-                                <p>{item.name}</p>
-                                <p>3</p>
-                                <p>{item.price}</p>
+                            <div className='item-info-details'>
+                                <p>Title : {item.name}</p>
+                                <p>Qty : {item.qty}</p>
+                                <p>Price : {item.price}</p>
                             </div>
                             <div>
-                                <button>Remove</button>
+                                <button onClick={()=>props.removeFromCart(item)}>Remove</button>
                             </div>
                         </div>
 

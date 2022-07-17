@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import "../../css/Products/Products.css"
-import Modal from 'react-modal';
 import ProductModal from './ProductModal';
 
 function Products(props) {
-    console.log(props.products)
+    //console.log(props.products)
     const producst = props.products;
     const [product, setProduct] = useState("");
 
@@ -30,7 +29,7 @@ function Products(props) {
                         <p>{product.name}</p>
                         <span>{product.price}</span>
                     </div>
-                    <button className='product_btn'>Add To Cart</button>
+                    <button onClick={()=>props.addToCart(product)} className='product_btn'>Add To Cart</button>
                 </div>
 
             )
@@ -41,14 +40,7 @@ function Products(props) {
 
             <ProductModal  isOpenObj={product} onRequestCloseFunc={closeModal}/>
 
-            {/* <Modal isOpen={product} onRequestClose={closeModal}>
-                <span className='close_icon' onClick={closeModal}>&times;</span>
-                <div className='product_info'>
-                    {product?<img src={require(`../../images/${product.imageUrl}`)} />:true}
-                    <p>{product.name}</p>
-                    <p>{product.desc}</p>
-                </div>
-            </Modal> */}
+
 
 
 
