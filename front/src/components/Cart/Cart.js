@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../../css/Cart/Cart.css";
 import Checkout from '../Checkout/Checkout';
+import Bounce from 'react-reveal/Bounce';
 function Cart(props) {
     const [cartItems, setCartItems] = useState(props.cartItems);
     const [value, setValue] = useState("");
@@ -18,26 +19,30 @@ function Cart(props) {
     return (
         <div className="cartContainer">
             <div className="cartContainer-title">{props.cartItems.length > 0 ? 'CART ITEMS' : 'CART IS EMPTY'}</div>
-            <div className='cartItems'>
-                {props.cartItems.map((item, i) => (
-                    <div key={i} className='cartItemContainer'>
-                        <img src={require(`../../images/${item.imageUrl}`)} />
-                        <div className='item-info'>
-                            <div className='item-info-details'>
-                                <p>Title : {item.name}</p>
-                                <p>Qty : {item.qty}</p>
-                                <p>Price : {item.price}</p>
+            <Bounce bottom cascade>
+                <div className='cartItems'>
+
+                    {props.cartItems.map((item, i) => (
+                        <div key={i} className='cartItemContainer'>
+                            <img src={require(`../../images/${item.imageUrl}`)} />
+                            <div className='item-info'>
+                                <div className='item-info-details'>
+                                    <p>Title : {item.name}</p>
+                                    <p>Qty : {item.qty}</p>
+                                    <p>Price : {item.price}</p>
+                                </div>
+                                <div>
+                                    <button onClick={() => props.removeFromCart(item)}>Remove</button>
+                                </div>
                             </div>
-                            <div>
-                                <button onClick={() => props.removeFromCart(item)}>Remove</button>
-                            </div>
+
+
                         </div>
+                    ))}
 
 
-                    </div>
-                ))}
-
-            </div>
+                </div>
+            </Bounce>
             {props.cartItems.length > 0 ? <div className='cart-footer'>
                 <div className='cart-price'>
                     Total Price : ${props.cartItems.reduce((acc, p) => {
