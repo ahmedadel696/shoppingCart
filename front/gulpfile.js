@@ -14,6 +14,4 @@ gulp.task('comileSass', async function () {
     gulp.watch('src/components/**/*.scss', async function () {
         gulp.src('src/components/**/*.scss').pipe(sass()).pipe(gulp.dest('src/css'));
     });
-
-
 })

@@ -3,7 +3,7 @@ import "../../css/Cart/Cart.css";
 import Checkout from '../Checkout/Checkout';
 import Bounce from 'react-reveal/Bounce';
 function Cart(props) {
-    const [cartItems, setCartItems] = useState(props.cartItems);
+  //  const [cartItems, setCartItems] = useState(props.cartItems);
     const [value, setValue] = useState("");
     const [showForm, setShowForm] = useState(false);
 
@@ -21,10 +21,9 @@ function Cart(props) {
             <div className="cartContainer-title">{props.cartItems.length > 0 ? 'CART ITEMS' : 'CART IS EMPTY'}</div>
             <Bounce bottom cascade>
                 <div className='cartItems'>
-
                     {props.cartItems.map((item, i) => (
                         <div key={i} className='cartItemContainer'>
-                            <img src={require(`../../images/${item.imageUrl}`)} />
+                            <img src={require(`../../images/${item.imageUrl}`)} alt={item.name} />
                             <div className='item-info'>
                                 <div className='item-info-details'>
                                     <p>Title : {item.name}</p>
