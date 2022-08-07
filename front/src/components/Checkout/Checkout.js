@@ -5,7 +5,7 @@ import  Fade  from 'react-reveal/Fade';
 function Checkout(props) {
 
 
-    if (props.showForm == true) {
+    if (props.showForm === true) {
         return (
             <Fade bottom>
                 <div className='checkout-form'>
