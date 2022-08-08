@@ -95,7 +95,7 @@ function App() {
         <main>
           <div className="mainContainer">
             <div className="productsContainer">
-              <Products addToCart={addToCart} products={products} />
+              <Products addToCart={addToCart} />
             </div>
             <div className="filterContainer">
               <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
