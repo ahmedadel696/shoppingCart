@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "../../css/Products/Products.css"
 import ProductModal from './ProductModal';
 import Bounce from 'react-reveal/Bounce';
+import { connect } from 'react-redux';
+import {fetchProducts} from '../../store/actions/products';
+
+
 function Products(props) {
     //console.log(props.products)
     const producst = props.products;
@@ -15,10 +19,14 @@ function Products(props) {
         setProduct(false);
     }
 
+    useEffect(() => {
+        props.fetchProducts();
+    }, []);
+
     return (
         <Bounce left cascade>
             <div className='product_container'>
-                {producst.map((product, i) =>
+                {props.products && props.products.length ? props.products.map((product, i) =>
                 (
                     <div className='product_item' key={i}>
                         <a href='#' onClick={() => openModal(product)}>
@@ -36,7 +44,7 @@ function Products(props) {
 
 
 
-                )}
+                ): "Loading..."}
                 <ProductModal isOpenObj={product} onRequestCloseFunc={closeModal} />
             </div>
         </Bounce>
@@ -44,4 +52,8 @@ function Products(props) {
 
 
 }
-export default Products;
+export default connect((state)=>{
+    return{
+        producst : state.products.products
+    }
+},{fetchProducts})(Products);
