@@ -17,6 +17,12 @@ router.get('/api/getProducts', async (req, res) => {
     res.send(products);
 });
 
+//get product by id 
+router.get('/api/getProductById/:id', async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    res.send(product);
+});
+
 
 //remove product
 router.delete('/api/deleteProduct/:id', async (req, res) => {

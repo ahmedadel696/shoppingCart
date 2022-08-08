@@ -6,7 +6,8 @@ import Products from "./components/Products/Products";
 import Filter from "./components/Filter/Filter";
 import { useEffect, useState } from "react";
 import Cart from "./components/Cart/Cart";
-
+import { Provider } from 'react-redux'
+import store from "./store/store";
 function App() {
 
   const [products, setProducts] = useState(data);
@@ -63,17 +64,17 @@ function App() {
     setCartItems(cartItemsClone)
   }
 
-  const removeFromCart =(product)=>{
+  const removeFromCart = (product) => {
     var cartItemsClone = [...cartItems];
     var cartItemsCloneFilter = cartItemsClone.filter(p => p.id != product.id);
     setCartItems(cartItemsCloneFilter);
   }
 
   useEffect(() => {
-    localStorage.setItem('cartItems',JSON.stringify(cartItems));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  
+
 
   // const removeFromCart = (product) => {
   //   var cartItemsClone = [...cartItems];
@@ -88,21 +89,24 @@ function App() {
 
 
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <div className="mainContainer">
-          <div className="productsContainer">
-            <Products addToCart={addToCart} products={products} />
+    <Provider store={store}>
+      <div className="container">
+        <Header />
+        <main>
+          <div className="mainContainer">
+            <div className="productsContainer">
+              <Products addToCart={addToCart} products={products} />
+            </div>
+            <div className="filterContainer">
+              <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
+            </div>
           </div>
-          <div className="filterContainer">
-            <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
-          </div>
-        </div>
-        <Cart removeFromCart={removeFromCart} cartItems={cartItems}  />
-      </main>
-      <Footer />
-    </div>
+          <Cart removeFromCart={removeFromCart} cartItems={cartItems} />
+        </main>
+        <Footer />
+      </div>
+    </Provider>
+
   );
 }
 

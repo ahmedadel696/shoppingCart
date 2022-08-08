@@ -2,12 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-const route = require('./routes/routes');
+const routers = require('./routes/routes');
 
 
 app.use(bodyParser.json());
 
-app.use('/', route);
+app.use('/', routers);
 
 app.listen(5001, () => {
     console.log('running on port 5001');
