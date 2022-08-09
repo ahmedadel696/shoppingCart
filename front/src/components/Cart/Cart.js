@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { removeFromCart } from '../../store/actions/cart';
 import { useEffect } from 'react';
 import Modal from 'react-modal';
+import { fetchOrders, saveOrder, clearOrder } from './../../store/actions/orders';
 function Cart(props) {
     //  const [cartItems, setCartItems] = useState(props.cartItems);
     const [value, setValue] = useState("");
@@ -20,24 +21,31 @@ function Cart(props) {
     const submitOrder = (e) => {
         e.preventDefault();
         console.log(value);
-        setOrder(value);
+        //setOrder(value);
+        props.saveOrder(value);
     }
+
+    const closeOrderModal =()=>{
+        props.clearOrder();
+        setShowForm(false);
+    }
+
 
     return (
         <div className="cartContainer">
             <div className="cartContainer-title">{props.cartItems.length > 0 ? 'CART ITEMS' : 'CART IS EMPTY'}</div>
-            <Modal isOpen={order} onRequestClose={()=>setOrder(false)}>
-            <span className='close-order-modal' onClick={()=>setOrder(false)}>&times;</span>
+            {props.order && <Modal isOpen={props.order} onRequestClose={closeOrderModal}>
+                <span className='close-order-modal' onClick={closeOrderModal}>&times;</span>
                 <div className='order-info'>
                     <p className='alert-success'>Order Done Successfully</p>
                     <table>
                         <tr>
                             <td>name : </td>
-                            <td>{order.name}</td>
+                            <td>{props.order.name}</td>
                         </tr>
                         <tr>
                             <td>E-mail : </td>
-                            <td>{order.email}</td>
+                            <td>{props.order.email}</td>
                         </tr>
                         <tr>
                             <td>Total : </td>
@@ -58,7 +66,7 @@ function Cart(props) {
                         </tr>
                     </table>
                 </div>
-            </Modal>
+            </Modal>}
             <Bounce bottom cascade>
                 <div className='cartItems'>
                     {props.cartItems.map((item, i) => (
@@ -103,6 +111,8 @@ function Cart(props) {
 
 export default connect((state) => {
     return {
-        cartItems: state.cart.cartItems
+        cartItems: state.cart.cartItems,
+        orders: state.order.orders,
+        order: state.order.order
     }
-}, { removeFromCart })(Cart);
+}, { removeFromCart, fetchOrders, saveOrder, clearOrder })(Cart);
