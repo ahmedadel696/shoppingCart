@@ -2,10 +2,15 @@ import React, { useState } from 'react'
 import "../../css/Cart/Cart.css";
 import Checkout from '../Checkout/Checkout';
 import Bounce from 'react-reveal/Bounce';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../store/actions/cart';
+import { useEffect } from 'react';
 function Cart(props) {
-  //  const [cartItems, setCartItems] = useState(props.cartItems);
+    //  const [cartItems, setCartItems] = useState(props.cartItems);
     const [value, setValue] = useState("");
     const [showForm, setShowForm] = useState(false);
+
+
 
     const handleChangeInputs = (e) => {
         setValue((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
@@ -34,12 +39,8 @@ function Cart(props) {
                                     <button onClick={() => props.removeFromCart(item)}>Remove</button>
                                 </div>
                             </div>
-
-
                         </div>
                     ))}
-
-
                 </div>
             </Bounce>
             {props.cartItems.length > 0 ? <div className='cart-footer'>
@@ -54,7 +55,6 @@ function Cart(props) {
 
             </div> : true}
 
-
             <Checkout
                 showForm={showForm}
                 setShowForm={setShowForm}
@@ -66,4 +66,8 @@ function Cart(props) {
     )
 }
 
-export default Cart;
+export default connect((state) => {
+    return {
+        cartItems: state.cart.cartItems
+    }
+}, { removeFromCart })(Cart);

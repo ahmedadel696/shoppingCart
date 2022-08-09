@@ -45,34 +45,34 @@ function App() {
     setProducts(newProductsClone);
   }
 
-  const addToCart = (product) => {
-    var isExist = false;
-    var cartItemsClone = [...cartItems];
-    var totalPrice = 0;
-    cartItems.forEach(item => {
-      if (item.id === product.id) {
-        isExist = true;
-        item.qty++;
-        item.price = item.price * item.qty;
-      }
-    });
+  // const addToCart = (product) => {
+  //   var isExist = false;
+  //   var cartItemsClone = [...cartItems];
+  //   var totalPrice = 0;
+  //   cartItems.forEach(item => {
+  //     if (item.id === product.id) {
+  //       isExist = true;
+  //       item.qty++;
+  //       item.price = item.price * item.qty;
+  //     }
+  //   });
 
-    if (!isExist) {
-      cartItemsClone.push({ ...product, qty: 1 });
-    }
+  //   if (!isExist) {
+  //     cartItemsClone.push({ ...product, qty: 1 });
+  //   }
 
-    setCartItems(cartItemsClone)
-  }
+  //   setCartItems(cartItemsClone)
+  // }
 
-  const removeFromCart = (product) => {
-    var cartItemsClone = [...cartItems];
-    var cartItemsCloneFilter = cartItemsClone.filter(p => p.id != product.id);
-    setCartItems(cartItemsCloneFilter);
-  }
+  // const removeFromCart = (product) => {
+  //   var cartItemsClone = [...cartItems];
+  //   var cartItemsCloneFilter = cartItemsClone.filter(p => p.id != product.id);
+  //   setCartItems(cartItemsCloneFilter);
+  // }
 
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  // }, [cartItems]);
 
 
 
@@ -95,13 +95,13 @@ function App() {
         <main>
           <div className="mainContainer">
             <div className="productsContainer">
-              <Products addToCart={addToCart} />
+              <Products/>
             </div>
             <div className="filterContainer">
-              <Filter handleFitlerBySize={handleFitlerBySize} handleFitlerByOrder={handleFitlerByOrder} size={sizeFilter} order={orderFilter} count={products.length} />
+              <Filter/>
             </div>
           </div>
-          <Cart removeFromCart={removeFromCart} cartItems={cartItems} />
+          <Cart />
         </main>
         <Footer />
       </div>
