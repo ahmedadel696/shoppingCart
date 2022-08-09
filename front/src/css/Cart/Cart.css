@@ -50,3 +50,47 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  height: "100%";
+}
+.order-info .alert-success {
+  background-color: green;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+.order-info table {
+  border: 1px solid #c0c0c0;
+}
+.order-info table tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c0c0c0;
+}
+.order-info table tr:last-of-type {
+  border-bottom: 0;
+}
+.order-info table td {
+  padding: 20px;
+}
+.order-info table td .item-data {
+  padding: 5px;
+}
+
+.close-order-modal {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  background-color: #333;
+  font-size: 22px;
+  color: #ddd;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+}

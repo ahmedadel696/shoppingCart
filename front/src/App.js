@@ -10,40 +10,40 @@ import { Provider } from 'react-redux'
 import store from "./store/store";
 function App() {
 
-  const [products, setProducts] = useState(data);
-  const [sizeFilter, setSizeFilter] = useState("");
-  const [orderFilter, setOrderFilter] = useState("");
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
+  // const [products, setProducts] = useState(data);
+  // const [sizeFilter, setSizeFilter] = useState("");
+  // const [orderFilter, setOrderFilter] = useState("");
+  // const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []);
 
-  const handleFitlerBySize = (e) => {
-    console.log(e.target.value);
-    setSizeFilter(e.target.value);
+  // const handleFitlerBySize = (e) => {
+  //   console.log(e.target.value);
+  //   setSizeFilter(e.target.value);
 
-    if (e.target.value === "All") {
-      setProducts(data);
-    } else {
-      let ProductsClone = [...data];
-      let newProductsClone = ProductsClone.filter(p => p.sizes.indexOf(e.target.value) !== -1);
-      setProducts(newProductsClone);
-    }
-  }
+  //   if (e.target.value === "All") {
+  //     setProducts(data);
+  //   } else {
+  //     let ProductsClone = [...data];
+  //     let newProductsClone = ProductsClone.filter(p => p.sizes.indexOf(e.target.value) !== -1);
+  //     setProducts(newProductsClone);
+  //   }
+  // }
 
-  const handleFitlerByOrder = (e) => {
-    console.log(e.target.value);
-    setOrderFilter(e.target.value);
+  // const handleFitlerByOrder = (e) => {
+  //   console.log(e.target.value);
+  //   setOrderFilter(e.target.value);
 
-    let ProductsClone = [...products];
-    let newProductsClone = ProductsClone.sort(function (a, b) {
-      if (e.target.value === "lowest") {
-        return a.price - b.price;
-      } else if (e.target.value === "highest") {
-        return b.price - a.price;
-      } else {
-        return a.id < b.id ? 1 : -1;
-      }
-    });
-    setProducts(newProductsClone);
-  }
+  //   let ProductsClone = [...products];
+  //   let newProductsClone = ProductsClone.sort(function (a, b) {
+  //     if (e.target.value === "lowest") {
+  //       return a.price - b.price;
+  //     } else if (e.target.value === "highest") {
+  //       return b.price - a.price;
+  //     } else {
+  //       return a.id < b.id ? 1 : -1;
+  //     }
+  //   });
+  //   setProducts(newProductsClone);
+  // }
 
   // const addToCart = (product) => {
   //   var isExist = false;
