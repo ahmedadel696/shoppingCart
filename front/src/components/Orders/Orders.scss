@@ -1,0 +1,35 @@
+.orders-container {
+  display: flex;
+  justify-content: center;
+  table {
+    border: 1px solid #000;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+      thead{
+        background-color: #5a5ea5;
+        color: #fff;
+        tr {
+            padding: 5px;
+            margin: 1px;
+
+          th {
+            padding: 5px;
+            margin: 1px;
+            border:1px solid #000;
+          }
+        }
+      }
+
+      tbody{
+        tr{
+            td {
+                padding: 5px;
+                margin: 1px;
+                border:1px solid #000;
+              }
+        }
+      }
+    }
+  }
+

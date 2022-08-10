@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import store from "./store/store";
 import { BrowserRouter, NavLink ,Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
-import Orders from "./pages/Orders";
 import Navbar from "./components/Navbar/Navbar";
+import OrdersPage from "./pages/OrdersPage";
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +19,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} exact />
-              <Route path="/orders" element={<Orders />} exact />
+              <Route path="/orders" element={<OrdersPage />} exact />
 
             </Routes>
 

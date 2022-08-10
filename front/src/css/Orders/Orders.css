@@ -1,0 +1,28 @@
+.orders-container {
+  display: flex;
+  justify-content: center;
+}
+.orders-container table {
+  border: 1px solid #000;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+.orders-container table thead {
+  background-color: #5a5ea5;
+  color: #fff;
+}
+.orders-container table thead tr {
+  padding: 5px;
+  margin: 1px;
+}
+.orders-container table thead tr th {
+  padding: 5px;
+  margin: 1px;
+  border: 1px solid #000;
+}
+.orders-container table tbody tr td {
+  padding: 5px;
+  margin: 1px;
+  border: 1px solid #000;
+}
