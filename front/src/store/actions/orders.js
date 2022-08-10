@@ -37,7 +37,6 @@ export const saveOrder = (order) => {
             })
 
         localStorage.clear('cartItems');
-        //dispatch({ type: CLEAR_CART })
     }
 }
 

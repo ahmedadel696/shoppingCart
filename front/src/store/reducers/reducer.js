@@ -6,5 +6,5 @@ import { productReducer } from './productReducer';
 export default combineReducers({
     products : productReducer,
     cart : cartReducer,
-    order : OrderReducer
+    orders : OrderReducer
 })

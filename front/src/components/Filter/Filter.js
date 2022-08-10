@@ -14,7 +14,7 @@ function Filter(props) {
                     <p className='filter-size-count'>Num of Products 3</p>
 
                     <p className='filter-size-title'>Size Filter</p>
-                    <select value={props.size} className='filter-size-select' onChange={(e) => props.filterProductsBySize(props.filterProducts, e.target.value)}>
+                    <select value={props.size} className='filter-size-select' onChange={(e) => props.filterProductsBySize(props.products, e.target.value)}>
                         <option value="All">All</option>
                         <option value="S">S</option>
                         <option value="M">M</option>

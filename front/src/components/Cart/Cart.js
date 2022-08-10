@@ -4,24 +4,17 @@ import Checkout from '../Checkout/Checkout';
 import Bounce from 'react-reveal/Bounce';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../store/actions/cart';
-import { useEffect } from 'react';
 import Modal from 'react-modal';
 import { fetchOrders, saveOrder, clearOrder } from './../../store/actions/orders';
 function Cart(props) {
-    //  const [cartItems, setCartItems] = useState(props.cartItems);
     const [value, setValue] = useState("");
     const [showForm, setShowForm] = useState(false);
-    const [order, setOrder] = useState(false);
-
-
     const handleChangeInputs = (e) => {
         setValue((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
     }
-
     const submitOrder = (e) => {
         e.preventDefault();
         console.log(value);
-        //setOrder(value);
         props.saveOrder(value);
     }
 
@@ -112,7 +105,7 @@ function Cart(props) {
 export default connect((state) => {
     return {
         cartItems: state.cart.cartItems,
-        orders: state.order.orders,
-        order: state.order.order
+        orders: state.orders.orders,
+        order: state.orders.order
     }
 }, { removeFromCart, fetchOrders, saveOrder, clearOrder })(Cart);

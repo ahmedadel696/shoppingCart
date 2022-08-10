@@ -8,18 +8,13 @@ import { addToCart } from './../../store/actions/cart';
 
 
 function Products(props) {
-    //console.log(props.products)
-    const producst = props.products;
     const [product, setProduct] = useState("");
-
     const openModal = (product) => {
         setProduct(product);
     }
-
     const closeModal = () => {
         setProduct(false);
     }
-
     useEffect(() => {
         props.fetchProducts();
     }, []);
@@ -42,9 +37,6 @@ function Products(props) {
                     </div>
 
                 )
-
-
-
                 ): "Loading..."}
                 <ProductModal isOpenObj={product} onRequestCloseFunc={closeModal} />
             </div>
